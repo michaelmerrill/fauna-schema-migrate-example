@@ -1,0 +1,14 @@
+CreateRole({
+  name: "functionrole_create_account",
+  privileges: [{
+    resource: Collection("accounts"),
+    actions: {
+      create: true
+    }
+  }, {
+    resource: Index("accounts_by_email"),
+    actions: {
+      read: true
+    }
+  }]
+})

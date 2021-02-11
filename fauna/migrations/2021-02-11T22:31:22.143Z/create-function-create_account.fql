@@ -1,0 +1,16 @@
+CreateFunction({
+  name: "create_account",
+  body: Query(Lambda(["email", "name"], If(Exists(Match(Index("accounts_by_email"), Var("email"))), false, Let([{
+    account: Create(Collection("accounts"), {
+      data: {
+        email: Var("email"),
+        name: Var("name")
+      }
+    })
+  }], {
+    id: Select(["ref", "id"], Var("account")),
+    email: Select(["data", "email"], Var("account")),
+    name: Select(["data", "name"], Var("account"))
+  })))),
+  role: Role("functionrole_create_account")
+})

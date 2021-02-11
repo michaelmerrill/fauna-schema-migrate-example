@@ -1,0 +1,5 @@
+CreateFunction({
+  name: "get_account",
+  body: Query(Lambda("email", If(Exists(Match(Index("accounts_by_email"), Var("email"))), Get(Match(Index("accounts_by_email"), Var("email"))), false))),
+  role: Role("functionrole_get_account")
+})

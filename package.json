@@ -1,0 +1,17 @@
+{
+  "name": "fauna-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fauna": "fauna-schema-migrate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "faunadb": "^4.0.3",
+    "fauna-schema-migrate": "^0.1.2-beta"
+  }
+}
